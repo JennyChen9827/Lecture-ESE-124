@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/styles/default.min.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.10/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.10/dist/index.js"></script><script>(r => {
+              setTimeout(r);
+            })(function renderToolbar() {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"2D Array: Matrix Operations Example","children":[{"content":"Basics","children":[{"content":"2x2 Matrix","children":[{"content":"<pre data-lines=\"4,8\"><code data-lines=\"4,8\">|<span class=\"hljs-string\"> 1 2 </span>|\n|<span class=\"hljs-string\"> 3 4 </span>|\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"4,8"}}],"payload":{"tag":"h3","lines":"3,4"}},{"content":"3x3 Matrix","children":[{"content":"<pre data-lines=\"10,15\"><code data-lines=\"10,15\">|<span class=\"hljs-string\"> 1 2 3 </span>|\n|<span class=\"hljs-string\"> 4 5 6 </span>|\n|<span class=\"hljs-string\"> 7 8 9 </span>|\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"10,15"}}],"payload":{"tag":"h3","lines":"9,10"}}],"payload":{"tag":"h2","lines":"2,3"}},{"content":"Operations","children":[{"content":"Matrix Addition","children":[{"content":"<pre data-lines=\"18,22\"><code data-lines=\"18,22\">|<span class=\"hljs-string\"> 1 2 </span>|<span class=\"hljs-string\">   </span>|<span class=\"hljs-string\"> 5 6 </span>|<span class=\"hljs-string\">   </span>|<span class=\"hljs-string\"> 6  8  </span>|\n|<span class=\"hljs-string\"> 3 4 </span>|<span class=\"hljs-string\"> + </span>|<span class=\"hljs-string\"> 7 8 </span>|<span class=\"hljs-string\"> = </span>|<span class=\"hljs-string\"> 10 12 </span>|\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"18,22"}}],"payload":{"tag":"h3","lines":"17,18"}},{"content":"Matrix Multiplication","children":[{"content":"<pre data-lines=\"24,28\"><code data-lines=\"24,28\">|<span class=\"hljs-string\"> 1 2 </span>|<span class=\"hljs-string\">   </span>|<span class=\"hljs-string\"> 5 6 </span>|<span class=\"hljs-string\">   </span>|<span class=\"hljs-string\"> 19 22 </span>|\n|<span class=\"hljs-string\"> 3 4 </span>|<span class=\"hljs-string\"> &#xd7; </span>|<span class=\"hljs-string\"> 7 8 </span>|<span class=\"hljs-string\"> = </span>|<span class=\"hljs-string\"> 43 50 </span>|\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"24,28"}}],"payload":{"tag":"h3","lines":"23,24"}}],"payload":{"tag":"h2","lines":"16,17"}},{"content":"Functions","children":[{"content":"Display Matrix Function","children":[{"content":"<pre data-lines=\"31,62\"><code class=\"language-c\">void displayMatrix(int matrix[][3], int rows, int cols) {\n    for(int i = 0; i &lt; rows; i++) {\n        printf(&quot;|&quot;);\n        for(int j = 0; j &lt; cols; j++) {\n            printf(&quot; %d &quot;, matrix[i][j]);\n        }\n        printf(&quot;|\\n&quot;);\n    }\n}\n\n// Example usage:\nint main() {\n    int matrix[3][3] = {\n        {1, 2, 3},\n        {4, 5, 6},\n        {7, 8, 9}\n    };\n    \n    printf(&quot;Matrix Display:\\n&quot;);\n    displayMatrix(matrix, 3, 3);\n    return 0;\n}\n\n/* Output:\nMatrix Display:\n|  1   2   3 |\n|  4   5   6 |\n|  7   8   9 |\n*/\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"31,62"}}],"payload":{"tag":"h3","lines":"30,31"}},{"content":"3x3 Matrix Multiplication and Transpose","children":[{"content":"<pre data-lines=\"64,75\"><code data-lines=\"64,75\">Original Matrix A:\n|<span class=\"hljs-number\"> 1 </span>2<span class=\"hljs-number\"> 3 </span>|   |<span class=\"hljs-number\"> 7 </span>8<span class=\"hljs-number\"> 9 </span>|   |<span class=\"hljs-number\"> 30 </span><span class=\"hljs-number\"> 36 </span><span class=\"hljs-number\"> 42 </span>|\n|<span class=\"hljs-number\"> 4 </span>5<span class=\"hljs-number\"> 6 </span>| &#xd7; |<span class=\"hljs-number\"> 2 </span>4<span class=\"hljs-number\"> 6 </span>| = |<span class=\"hljs-number\"> 66 </span><span class=\"hljs-number\"> 81 </span><span class=\"hljs-number\"> 96 </span>|\n|<span class=\"hljs-number\"> 7 </span>8<span class=\"hljs-number\"> 9 </span>|   |<span class=\"hljs-number\"> 1 </span>2<span class=\"hljs-number\"> 3 </span>|   |102<span class=\"hljs-number\"> 126 </span>150 |\n\nResult Matrix Transposed:\n|<span class=\"hljs-number\"> 30 </span><span class=\"hljs-number\"> 66 </span><span class=\"hljs-number\"> 102 </span>|\n|<span class=\"hljs-number\"> 36 </span><span class=\"hljs-number\"> 81 </span><span class=\"hljs-number\"> 126 </span>|\n|<span class=\"hljs-number\"> 42 </span><span class=\"hljs-number\"> 96 </span><span class=\"hljs-number\"> 150 </span>|\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"64,75"}}],"payload":{"tag":"h3","lines":"63,64"}}],"payload":{"tag":"h2","lines":"29,30"}},{"content":"Special Matrices","children":[{"content":"Upper Triangular Matrix","children":[{"content":"<pre data-lines=\"78,90\"><code class=\"language-c\">void upperTriangular(int matrix[3][3], int size) {\n    for(int i = 0; i &lt; size; i++) {\n        for(int j = 0; j &lt; size; j++) {\n            if(i &gt; j)\n                printf(&quot;0\\t\\t&quot;);\n            else\n                printf(&quot;%d\\t\\t&quot;, matrix[i][j])\n        }\n    }\n}\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"78,90"}},{"content":"<pre data-lines=\"92,97\"><code data-lines=\"92,97\">|<span class=\"hljs-string\"> 1 2 3 </span>|\n|<span class=\"hljs-string\"> 0 4 5 </span>|\n|<span class=\"hljs-string\"> 0 0 6 </span>|\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"92,97"}}],"payload":{"tag":"h3","lines":"77,78"}},{"content":"Lower Triangular Matrix","children":[{"content":"<pre data-lines=\"99,111\"><code class=\"language-c\">void lowerTriangular(int matrix[3][3], int size) {\n    for(int i = 0; i &lt; size; i++) {\n        for(int j = 0; j &lt; size; j++) {\n           if(i &lt; j)\n                printf(&quot;0\\t\\t&quot;);\n            else\n                printf(&quot;%d\\t\\t&quot;, matrix[i][j])\n        }\n    }\n}\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"99,111"}},{"content":"<pre data-lines=\"113,118\"><code data-lines=\"113,118\">|<span class=\"hljs-string\"> 1 0 0 </span>|\n|<span class=\"hljs-string\"> 4 5 0 </span>|\n|<span class=\"hljs-string\"> 7 8 9 </span>|\n</code></pre>","children":[],"payload":{"tag":"pre","lines":"113,118"}}],"payload":{"tag":"h3","lines":"98,99"}}],"payload":{"tag":"h2","lines":"76,77"}},{"content":"Notes","children":[{"content":"Transpose switches rows and columns","children":[],"payload":{"tag":"li","lines":"120,121"}},{"content":"First matrix columns must equal second matrix rows for multiplication","children":[],"payload":{"tag":"li","lines":"121,122"}},{"content":"Result matrix dimensions: (first matrix rows) &#xd7; (second matrix columns)","children":[],"payload":{"tag":"li","lines":"122,123"}},{"content":"Each element calculated by dot product of row and column","children":[],"payload":{"tag":"li","lines":"123,124"}},{"content":"Upper triangular has zeros below main diagonal","children":[],"payload":{"tag":"li","lines":"124,125"}},{"content":"Lower triangular has zeros above main diagonal","children":[],"payload":{"tag":"li","lines":"125,126"}}],"payload":{"tag":"h2","lines":"119,120"}}],"payload":{"tag":"h1","lines":"0,1"}},{})</script>
+</body>
+</html>
